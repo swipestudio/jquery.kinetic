@@ -1,77 +1,121 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-  <meta charset='utf-8'>
+<title>jQuery.kinetic demos</title>
+<meta name="viewport" content="width=550" />
 
-  <title>davetayls/jquery.kinetic @ GitHub</title>
+<script src="http://code.jquery.com/jquery-1.6.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://github.com/davetayls/jquery.kinetic/raw/master/jquery.kinetic.js" type="text/javascript" charset="utf-8"></script>
+<style type="text/css">
+#wrapper {
+    border: solid 1px #000;
+    height: 200px;
+    width: 700px;
+    overflow: hidden;
+}
+#inner {
+    border: solid 1px red;
+    height: 182px;
+    width: 2000px;
+}
+#left, #right { cursor: pointer; }
 
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #ffffff;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #000000; }
-    h3 { text-align: center; color: #000000; }
-    a { color: #000000; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
+body {
+    margin-top: 1.0em;
+    background-color: #ffffff;
+    font-family: Helvetica, Arial, FreeSans, san-serif;
+    color: #000000;
+}
+#container {
+    margin: 0 auto;
+    width: 700px;
+}
+h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
+h1 .small { font-size: 0.4em; }
+h1 a { text-decoration: none }
+h2 { font-size: 1.5em; color: #000000; }
+h3 { text-align: center; color: #000000; }
+
+</style>
 </head>
-
 <body>
-  <a href="http://github.com/davetayls/jquery.kinetic"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-
-  <div id="container">
-
+<div id="container">
+    <h1>jQuery.kinetic demos</h1>
+    <a href="http://github.com/davetayls/jquery.kinetic"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+    <p>jQuery.kinetic is a simple plugin which adds smooth drag scrolling with gradual deceleration to containers</p>
     <div class="download">
-      <a href="http://github.com/davetayls/jquery.kinetic/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/davetayls/jquery.kinetic/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+        <a href="http://github.com/davetayls/jquery.kinetic/zipball/master">
+            <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+        <a href="http://github.com/davetayls/jquery.kinetic/tarball/master">
+            <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
     </div>
 
-    <h1><a href="http://github.com/davetayls/jquery.kinetic">jquery.kinetic</a>
-      <span class="small">by <a href="http://github.com/davetayls">davetayls</a></span></h1>
-
-    <div class="description">
-      add kinetic scrolling functionality to a container using mouse or touch devices
-    </div>
-
-    <h2>Authors</h2>
-<p>Dave Taylor (dave@the-taylors.org)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Dave Taylor (dave@the-taylors.org)<br/>      </p>
-
-
-    <h2>Download</h2>
+    <h2>Demo</h2>
     <p>
-      You can download this project in either
-      <a href="http://github.com/davetayls/jquery.kinetic/zipball/master">zip</a> or
-      <a href="http://github.com/davetayls/jquery.kinetic/tarball/master">tar</a> formats.
+    Drag a mouse or use touch gestures over the windows below to scroll 
+    the pane. If you let go with momentum the scrolling will slow
+    gradually.
     </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/davetayls/jquery.kinetic</pre>
-    </p>
-
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/davetayls/jquery.kinetic">davetayls/jquery.kinetic</a>
+    <div id="wrapper">
+        <div id="inner">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet mattis quam, hendrerit tristique metus blandit nec. Nulla erat arcu, iaculis in dapibus id, sollicitudin eget nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet mattis quam, hendrerit tristique metus blandit nec. Nulla erat arcu, iaculis in dapibus id, sollicitudin eget nibh.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet mattis quam, hendrerit tristique metus blandit nec. Nulla erat arcu, iaculis in dapibus id, sollicitudin eget nibh.Quisque gravida  mi velit, sed adipiscing est. Donec eget nisl vitae mauris eleifend cursus. Suspendisse eget elit ac lectus feugiat placerat. Suspendisse</p>
+        </div>
     </div>
+    <div>
+        <span id="left">&lt; left</span> |
+        <span id="right">right &gt;</span>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+$('#wrapper').kinetic({
+moved: function(state){
+console.log(state);
+}
+});
+$('#left').mousedown(function(){
+        $('#wrapper').kinetic('start', { velocity: -30 });
+        });
+$('#left').mouseup(function(){
+        $('#wrapper').kinetic('end');
+        });
+$('#right').mousedown(function(){
+        $('#wrapper').kinetic('start', { velocity: 30 });
+        });
+$('#right').mouseup(function(){
+        $('#wrapper').kinetic('end');
+        });
+    </script>
 
-  </div>
+    <h2>Options</h2>
+    <pre><code>
+    slowdown    {number}    default: 0.9    This option affects the speed at which the scroll slows
+    maxvelocity {number}    default: 40     This option puts a cap on speed at which the container
+                                            can scroll
 
-  
+    Listeners:  All listeners are called with:
+                - this = jQuery object holding the scroll container
+                - a single argument state: { }
+
+    moved       {function(state)}           A function which is called on every move
+
+    Methods:    You can call methods by running the kinetic plugin
+                on an element which has already been activated.
+
+                eg  $('#wrapper').kinetic(); // activate
+                    $('#wrapper').kinetic('methodname', arguments);
+
+    start       Start movement in the scroll container at a particular velocity.
+                This velocity will not slow until the end method is called.
+
+                The following line scrolls the container left.
+                $('#wrapper#).kinetic('start', { velocity: -30 });
+
+                The following line scrolls the container right.
+                $('#wrapper#).kinetic('start', { velocity: 30 });
+
+    end         Begin slowdown of any scrolling velocity in the container.
+                $('#wrapper#).kinetic('end');
+    </code></pre>
+</div>
 </body>
 </html>
