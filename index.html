@@ -7,33 +7,33 @@
         <script src="http://code.jquery.com/jquery-1.6.2.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="https://github.com/davetayls/jquery.kinetic/raw/master/jquery.kinetic.js" type="text/javascript" charset="utf-8"></script>
         <style type="text/css">
-#wrapper {
-    border: solid 1px #000;
-    height: 200px;
-    width: 700px;
-    overflow: hidden;
-}
-#inner {
-    border: solid 1px red;
-    width: 2000px;
-}
-#left, #right { cursor: pointer; }
+            #wrapper {
+                border: solid 1px #000;
+                height: 200px;
+                width: 700px;
+                overflow: hidden;
+            }
+            #inner {
+                border: solid 1px red;
+                width: 2000px;
+            }
+            #left, #right { cursor: pointer; }
 
-body {
-    margin-top: 1.0em;
-    background-color: #ffffff;
-    font-family: Helvetica, Arial, FreeSans, san-serif;
-    color: #000000;
-}
-#container {
-    margin: 0 auto;
-    width: 700px;
-}
-h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
-h1 .small { font-size: 0.4em; }
-h1 a { text-decoration: none }
-h2 { font-size: 1.5em; color: #000000; }
-h3 { text-align: center; color: #000000; }
+            body {
+                margin-top: 1.0em;
+                background-color: #ffffff;
+                font-family: Helvetica, Arial, FreeSans, san-serif;
+                color: #000000;
+            }
+            #container {
+                margin: 0 auto;
+                width: 700px;
+            }
+            h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
+            h1 .small { font-size: 0.4em; }
+            h1 a { text-decoration: none }
+            h2 { font-size: 1.5em; color: #000000; }
+            h3 { text-align: center; color: #000000; }
 
         </style>
     </head>
@@ -42,11 +42,11 @@ h3 { text-align: center; color: #000000; }
             <h1>jQuery.kinetic demos</h1>
             <a href="http://github.com/davetayls/jquery.kinetic"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
             <p>jQuery.kinetic is a simple plugin which adds smooth drag scrolling with gradual deceleration to containers</p>
-<div class="addthis_toolbox addthis_default_style ">
-    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-    <a class="addthis_button_tweet"></a>
-    <a class="addthis_button_twitter_follow_native" tf:screen_name="davetayls"></a>
-</div>
+            <div class="addthis_toolbox addthis_default_style ">
+                <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                <a class="addthis_button_tweet"></a>
+                <a class="addthis_button_twitter_follow_native" tf:screen_name="davetayls"></a>
+            </div>
             <div class="download">
                 <a href="http://github.com/davetayls/jquery.kinetic/zipball/master">
                     <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
@@ -56,9 +56,9 @@ h3 { text-align: center; color: #000000; }
 
             <h2>Demo</h2>
             <p>
-            Drag a mouse or use touch gestures over the windows below to scroll 
-            the pane. If you let go with momentum the scrolling will slow
-            gradually.
+                Drag a mouse or use touch gestures over the windows below to scroll 
+                the pane. If you let go with momentum the scrolling will slow
+                gradually.
             </p>
             <div id="wrapper">
                 <div id="inner">
@@ -85,11 +85,11 @@ h3 { text-align: center; color: #000000; }
                 <span id="right">right &gt;</span>
             </div>
             <script type="text/javascript" charset="utf-8">
-$('#wrapper').kinetic({
-moved: function(state){
-console.log(state);
-}
-});
+                $('#wrapper').kinetic({
+                    moved: function(state){
+                        console.log(state);
+                    }
+                });
 
 $('#left').mousedown(function(){
         $('#wrapper').kinetic('start', { velocity: -30 });
@@ -169,36 +169,36 @@ disableSelection(document.getElementById('inner'));
             </ul>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
-var disqus_shortname = 'davetayls'; // required: replace example with your forum shortname
+                var disqus_shortname = 'davetayls'; // required: replace example with your forum shortname
 
-// The following are highly recommended additional parameters. Remove the slashes in front to use.
-// var disqus_identifier = 'unique_dynamic_id_1234';
-var disqus_url = 'http://the-taylors.org/jquery.kinetic/';
+                // The following are highly recommended additional parameters. Remove the slashes in front to use.
+                // var disqus_identifier = 'unique_dynamic_id_1234';
+                var disqus_url = 'http://the-taylors.org/jquery.kinetic/';
 
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function() {
- var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
- dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
- (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
- })();
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                 dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                 })();
             </script>
             <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
             <script type="text/javascript">
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-4421586-2']);
-_gaq.push(['_trackPageview']);
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-4421586-2']);
+                _gaq.push(['_trackPageview']);
 
-(function() {
- var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
- ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
- var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
- })();
+                (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                 })();
             </script>
         </div>
-            <!-- sharing -->
-            <script type="text/javascript" src="http://platform.linkedin.com/in.js"></script>
-            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=davetayls"></script>
+        <!-- sharing -->
+        <script type="text/javascript" src="http://platform.linkedin.com/in.js"></script>
+        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=davetayls"></script>
     </body>
 </html>
