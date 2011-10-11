@@ -18,7 +18,24 @@
             #inner img {
                 width: 2000px;
             }
-            #left, #right { cursor: pointer; }
+            pre code {
+                background: #ddd;
+                display: block;
+                padding: 10px;
+                overflow: auto;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                -o-border-radius: 5px;
+                border-radius: 5px;
+            }
+    
+            #controls {
+                padding: 10px;
+            }
+                #controls span {
+                    cursor: pointer;
+                }
+
 
         .kinetic-moving-up {
             border-top-color: green !important;
@@ -93,54 +110,33 @@
                     <img src="wembley.jpg" alt="wembley stadium" />
                 </div>
             </div>
-            <div>
-                <span id="left">&lt; left</span> |
-                <span id="right">right &gt;</span>
-            </div>
-            <script type="text/javascript" charset="utf-8">
-                $('#wrapper').kinetic({
-                    moved: function(state){
-                        console.log(state);
-                    }
-                });
+<div id="controls">
+            <span id="left">&lt; left</span> |
+            <span id="right">right &gt;</span>
+            &nbsp;&nbsp; -- &nbsp;&nbsp;
+            <span id="end">end (decelerates)</span>
+            
+            &nbsp;&nbsp; -- &nbsp;&nbsp;
+            <span id="stop">stop (stop immediately)</span>
+        </div>
+        <script type="text/javascript" charset="utf-8">
+            $('#wrapper').kinetic();
+            $('#left').click(function(){
+                $('#wrapper').kinetic('start', { velocity: -10 });
+            });
+            $('#right').click(function(){
+                $('#wrapper').kinetic('start', { velocity: 10 });
+            });
+            $('#end').click(function(){
+                $('#wrapper').kinetic('end');
+            });
+            $('#stop').click(function(){
+                $('#wrapper').kinetic('stop');
+            });
+        </script>
 
-$('#left').mousedown(function(){
-        $('#wrapper').kinetic('start', { velocity: -30 });
-        });
-$('#left').mouseup(function(){
-        $('#wrapper').kinetic('end');
-        });
-$('#right').mousedown(function(){
-        $('#wrapper').kinetic('start', { velocity: 30 });
-        });
-$('#right').mouseup(function(){
-        $('#wrapper').kinetic('end');
-        });
-
-
-
-
-
-
-
-
-
-
-function disableSelection(target){
-    if (typeof target.onselectstart!="undefined") //IE route
-        target.onselectstart=function(){return false}
-    else if (typeof target.style.MozUserSelect!="undefined") //Firefox route
-        target.style.MozUserSelect="none"
-    else //All other route (ie: Opera)
-        target.onmousedown=function(){return false}
-    target.style.cursor = "default"
-}
-disableSelection(document.getElementById('inner'));
-
-            </script>
-
-            <h2>Options</h2>
-            <pre><code>
+        <h2>Options</h2>
+        <pre class="options"><code>
 slowdown    {number}    default: 0.9    This option affects the speed at which the scroll slows
 x           {string}    default: true   Toggles movement along the x axis
 y           {string}    default: true   Toggles movement along the y axis
@@ -174,7 +170,7 @@ Methods:    You can call methods by running the kinetic plugin
             on an element which has already been activated.
 
             eg  $('#wrapper').kinetic(); // activate
-                $('#wrapper').kinetic('methodname', arguments);
+                $('#wrapper').kinetic('methodname', options);
 
 start       Start movement in the scroll container at a particular velocity.
             This velocity will not slow until the end method is called.
@@ -191,14 +187,25 @@ start       Start movement in the scroll container at a particular velocity.
 end         Begin slowdown of any scrolling velocity in the container.
             $('#wrapper#).kinetic('end');
 
-            </code></pre>
+stop        Stop the scrolling immediately
+
+Add your own method:
+            // add the method
+            $.kinetic.callMethods.do = function(settings, options){
+                // method functionality
+            };
+
+            // use the method
+            $('#elem').kinetic('do', { ... });
+
+
+        </code></pre>
 
             <h2>Who&rsquo;s Using it</h2>
             <p>If you use this plugin then let me know on twitter <a href="http://twitter.com/davetayls">(@davetayls)</a></p>
             <ul>
-                <li>
-                <a href="http://www.glendimplex.com/our_story">Glen Dimplex History Timeline</a>
-                </li>
+                <li> <a href="http://www.rfu.com/weare">RFU We Are</a> </li>
+                <li> <a href="http://www.glendimplex.com/our_story">Glen Dimplex History Timeline</a> </li>
             </ul>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
