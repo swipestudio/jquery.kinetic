@@ -137,76 +137,74 @@
 
         <h2>Options</h2>
         <pre class="options"><code>
-slowdown    {number}    default: 0.9    This option affects the speed at which the scroll slows
-x           {string}    default: true   Toggles movement along the x axis
-y           {string}    default: true   Toggles movement along the y axis
-maxvelocity {number}    default: 40     This option puts a cap on speed at which the container
-                                        can scroll
-throttleFPS {number}    default: 60     This adds throttling to the mouse move events to boost
-                                        performance when scrolling
-movingClass {object} 
-    up:     {string}    default: 'kinetic-moving-up'
-    down:   {string}    default: 'kinetic-moving-down'
-    left:   {string}    default: 'kinetic-moving-left'
-    right:  {string}    default: 'kinetic-moving-right'
+    slowdown    {number}    default: 0.9    This option affects the speed at which the scroll slows
+    x           {string}    default: true   Toggles movement along the x axis
+    y           {string}    default: true   Toggles movement along the y axis
+    maxvelocity {number}    default: 40     This option puts a cap on speed at which the container
+                                            can scroll
+    throttleFPS {number}    default: 60     This adds throttling to the mouse move events to boost
+                                            performance when scrolling
+    triggerHardware {boolean} false         This adds css to the wrapper which
+                                            will trigger iOS to use hardware acceleration
+    movingClass {object} 
+        up:     {string}    default: 'kinetic-moving-up'
+        down:   {string}    default: 'kinetic-moving-down'
+        left:   {string}    default: 'kinetic-moving-left'
+        right:  {string}    default: 'kinetic-moving-right'
 
-deceleratingClass {object} 
-    up:     {string}    default: 'kinetic-decelerating-up'
-    down:   {string}    default: 'kinetic-decelerating-down'
-    left:   {string}    default: 'kinetic-decelerating-left'
-    right:  {string}    default: 'kinetic-decelerating-right'
+    deceleratingClass {object} 
+        up:     {string}    default: 'kinetic-decelerating-up'
+        down:   {string}    default: 'kinetic-decelerating-down'
+        left:   {string}    default: 'kinetic-decelerating-left'
+        right:  {string}    default: 'kinetic-decelerating-right'
 
+    Listeners:  All listeners are called with:
+                - this = jQuery object holding the scroll container
+                - a single settings argument which are all the options and  
+                  { scrollLeft, scrollTop, velocity, velocityY }
 
-Listeners:  All listeners are called with:
-            - this = jQuery object holding the scroll container
-            - a single settings argument which are all the options and  
-                { scrollLeft, scrollTop, velocity, velocityY }
+    moved       {function(settings)}           A function which is called on every move
+    stopped     {function(settings)}           A function which is called once all 
+                                               movement has stopped
 
-moved       {function(settings)}           A function which is called on every move
-stopped     {function(settings)}           A function which is called once all 
-                                            movement has stopped
+    Methods:    You can call methods by running the kinetic plugin
+                on an element which has already been activated.
 
-Methods:    You can call methods by running the kinetic plugin
-            on an element which has already been activated.
+                eg  $('#wrapper').kinetic(); // activate
+                    $('#wrapper').kinetic('methodname', options);
 
-            eg  $('#wrapper').kinetic(); // activate
-                $('#wrapper').kinetic('methodname', options);
+    start       Start movement in the scroll container at a particular velocity.
+                This velocity will not slow until the end method is called.
 
-start       Start movement in the scroll container at a particular velocity.
-            This velocity will not slow until the end method is called.
+                The following line scrolls the container left.
+                $('#wrapper#).kinetic('start', { velocity: -30 });
 
-            The following line scrolls the container left.
-            $('#wrapper#).kinetic('start', { velocity: -30 });
+                The following line scrolls the container right.
+                $('#wrapper#).kinetic('start', { velocity: 30 });
 
-            The following line scrolls the container right.
-            $('#wrapper#).kinetic('start', { velocity: 30 });
+                The following line scrolls the container diagonally.
+                $('#wrapper#).kinetic('start', { velocity: -30, velocityY: -10 });
 
-            The following line scrolls the container diagonally.
-            $('#wrapper#).kinetic('start', { velocity: -30, velocityY: -10 });
+    end         Begin slowdown of any scrolling velocity in the container.
+                $('#wrapper#).kinetic('end');
 
-end         Begin slowdown of any scrolling velocity in the container.
-            $('#wrapper#).kinetic('end');
+    stop        Stop the scrolling immediately
 
-stop        Stop the scrolling immediately
+    detach      Detach listeners and functionality from the wrapper
 
-Add your own method:
-            // add the method
-            $.kinetic.callMethods.do = function(settings, options){
-                // method functionality
-            };
+    attach      Re-attach listeners and functionality previously detached using
+                the detach method
 
-            // use the method
-            $('#elem').kinetic('do', { ... });
+    Add your own method:
+                // add the method
+                $.kinetic.callMethods.do = function(settings, options){
+                    // method functionality
+                };
 
-
+                // use the method
+                $('#elem').kinetic('do', { ... });
         </code></pre>
 
-            <h2>Who&rsquo;s Using it</h2>
-            <p>If you use this plugin then let me know on twitter <a href="http://twitter.com/davetayls">(@davetayls)</a></p>
-            <ul>
-                <li> <a href="http://www.rfu.com/weare">RFU We Are</a> </li>
-                <li> <a href="http://www.glendimplex.com/our_story">Glen Dimplex History Timeline</a> </li>
-            </ul>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
                 var disqus_shortname = 'davetayls'; // required: replace example with your forum shortname
