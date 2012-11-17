@@ -28,7 +28,7 @@
                 -o-border-radius: 5px;
                 border-radius: 5px;
             }
-    
+
             #controls {
                 padding: 10px;
             }
@@ -83,7 +83,12 @@
     </head>
     <body>
         <div id="container">
-            <h1>jQuery.kinetic 1.5</h1>
+            <div>
+                <a href="http://the-taylors.org">
+                    <img src="http://the-taylors.org/images/logo.gif" alt="Dave Taylor - Front-End Developer" />
+                </a>
+            </div>
+            <h1>jQuery.kinetic 1.6</h1>
             <a href="http://github.com/davetayls/jquery.kinetic"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
             <p>jQuery.kinetic is a simple plugin which adds smooth drag scrolling with gradual deceleration to containers</p>
             <div class="addthis_toolbox addthis_default_style ">
@@ -91,6 +96,8 @@
                 <a tw:via="davetayls" class="addthis_button_tweet"></a>
                 <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
                 <a class="addthis_button_twitter_follow_native" tf:screen_name="davetayls"></a>
+                <iframe src="http://ghbtns.com/github-btn.html?user=davetayls&repo=jquery.kinetic&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
             </div>
             <div class="download">
                 <a href="http://github.com/davetayls/jquery.kinetic/zipball/master">
@@ -101,7 +108,7 @@
 
             <h2>Demo</h2>
             <p>
-                Drag a mouse or use touch gestures over the windows below to scroll 
+                Drag a mouse or use touch gestures over the windows below to scroll
                 the pane. If you let go with momentum the scrolling will slow
                 gradually.
             </p>
@@ -115,7 +122,7 @@
             <span id="right">right &gt;</span>
             &nbsp;&nbsp; -- &nbsp;&nbsp;
             <span id="end">end (decelerates)</span>
-            
+
             &nbsp;&nbsp; -- &nbsp;&nbsp;
             <span id="stop">stop (stop immediately)</span>
         </div>
@@ -135,6 +142,13 @@
             });
         </script>
 
+        <h2>Comments and Issues</h2>
+        <p>
+            If you have any issues with the plugin then please
+            <a href="https://github.com/davetayls/jquery.kinetic/issues">log them in the issue tracker on github</a>
+            and I'll do my best to help.
+        </p>
+
         <h2>Options</h2>
         <pre class="options"><code>
 slowdown        {number}    default: 0.9    This option affects the speed at which the scroll slows
@@ -150,13 +164,13 @@ triggerHardware {boolean} false             This adds css to the wrapper which
 filterTarget    {function(target)}          Return false from this function to
                                             prevent capturing the scroll
 
-movingClass     {object} 
+movingClass     {object}
     up:         {string}    default: 'kinetic-moving-up'
     down:       {string}    default: 'kinetic-moving-down'
     left:       {string}    default: 'kinetic-moving-left'
     right:      {string}    default: 'kinetic-moving-right'
 
-deceleratingClass {object} 
+deceleratingClass {object}
     up:         {string}    default: 'kinetic-decelerating-up'
     down:       {string}    default: 'kinetic-decelerating-down'
     left:       {string}    default: 'kinetic-decelerating-left'
@@ -164,11 +178,11 @@ deceleratingClass {object}
 
 Listeners:  All listeners are called with:
             - this = jQuery object holding the scroll container
-            - a single settings argument which are all the options and  
+            - a single settings argument which are all the options and
               { scrollLeft, scrollTop, velocity, velocityY }
 
 moved       {function(settings)}           A function which is called on every move
-stopped     {function(settings)}           A function which is called once all 
+stopped     {function(settings)}           A function which is called once all
                                            movement has stopped
 
 Methods:    You can call methods by running the kinetic plugin
@@ -207,7 +221,7 @@ Add your own method:
 
             // use the method
             $('#elem').kinetic('do', { ... });
-        
+
         </code></pre>
 
             <div id="disqus_thread"></div>
