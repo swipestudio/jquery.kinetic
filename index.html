@@ -6,7 +6,13 @@
 
         <script src="http://code.jquery.com/jquery-1.6.2.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="https://github.com/davetayls/jquery.kinetic/raw/master/jquery.kinetic.js" type="text/javascript" charset="utf-8"></script>
+
+        <link rel="stylesheet" href="http://the-taylors.org/css/core.css">
         <style type="text/css">
+            #pageHeader {
+                width: auto;
+                padding-left: 0;
+            }
             #wrapper {
                 border: solid 4px #000;
                 height: 400px;
@@ -14,9 +20,15 @@
                 overflow: hidden;
                 cursor: move;
             }
+            .options {
+                font-size: 12px;
+                margin-bottom: 20px;
+            }
             #inner { }
             #inner img {
+                display: block;
                 width: 2000px;
+                max-width: none;
             }
             pre code {
                 background: #ddd;
@@ -83,12 +95,33 @@
     </head>
     <body>
         <div id="container">
-            <div>
-                <a href="http://the-taylors.org">
-                    <img src="http://the-taylors.org/images/logo.gif" alt="Dave Taylor - Front-End Developer" />
-                </a>
-            </div>
-            <h1>jQuery.kinetic 1.6</h1>
+            <header><div id="pageHeader">
+                <div id="logo">
+                    <a href="/"><img src="http://the-taylors.org/images/logo.gif" alt="Dave Taylor" /></a>
+                </div>
+                <div id="nav-primary">
+                    <ul>
+                        <li>
+                            <a accesskey="c" href="#content">Jump to main content [Access key 'C']</a>
+                        </li>
+                        <li>
+                            <a accesskey="0" href="http://the-taylors.org/">Home</a>
+                        </li>
+                        <li>
+                            <a href="http://the-taylors.org/davetayls/">About me</a>
+                        </li>
+                        <li>
+                            <a href="http://the-taylors.org/workwithme/">Work with me</a>
+                        </li>
+                        <li>
+                            <a href="http://feed.the-taylors.org">Subscribe here</a>
+                        </li>
+                    </ul>
+                </div>
+            </div></header> <!-- #pageHeader -->
+
+            <div id="content"></div>
+            <h1>jQuery.kinetic</h1>
             <a href="http://github.com/davetayls/jquery.kinetic"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
             <p>jQuery.kinetic is a simple plugin which adds smooth drag scrolling with gradual deceleration to containers</p>
             <div class="addthis_toolbox addthis_default_style ">
