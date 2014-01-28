@@ -1,9 +1,9 @@
 /*!
-    jQuery.kinetic v1.8.2
-    Dave Taylor http://the-taylors.org/jquery.kinetic
+    jQuery.kinetic v1.8.4
+    Dave Taylor http://davetayls.me/jquery.kinetic
 
     The MIT License (MIT)
-    Copyright (c) <2011> <Dave Taylor http://the-taylors.org>
+    Copyright (c) <2011> <Dave Taylor http://davetayls.me>
 */
 /*global define,require */
 (function($){
@@ -243,11 +243,16 @@
                 settings.velocity    = capVelocity(prevXPos - xpos, settings.maxvelocity);
                 settings.velocityY   = capVelocity(prevYPos - ypos, settings.maxvelocity);
             };
-            var useTarget = function(target) {
+            var useTarget = function(target, ev) {
                 if ($.isFunction(settings.filterTarget)) {
-                    return settings.filterTarget.call(self, target) !== false;
+                    return settings.filterTarget.call(self, target, ev) !== false;
+                } else {
+                  if (ev.which && ev.which > 1){
+                    return false;
+                  } else {
+                    return true;
+                  }
                 }
-                return true;
             };
             var start = function(clientX, clientY) {
                 mouseDown = true;
@@ -297,7 +302,7 @@
             settings.events = {
                 touchStart: function(e){
                     var touch;
-                    if (useTarget(e.target)) {
+                    if (useTarget(e.target, e)) {
                         touch = e.originalEvent.touches[0];
                         start(touch.clientX, touch.clientY);
                         e.stopPropagation();
@@ -312,7 +317,7 @@
                     }
                 },
                 inputDown: function(e){
-                    if (useTarget(e.target)) {
+                    if (useTarget(e.target, e)) {
                         start(e.clientX, e.clientY);
                         elementFocused = e.target;
                         if (e.target.nodeName === 'IMG'){
@@ -322,9 +327,11 @@
                     }
                 },
                 inputEnd: function(e){
-                    end();
-                    elementFocused = null;
-                    if (e.preventDefault) {e.preventDefault();}
+                    if (useTarget(e.target, e)) {
+                        end();
+                        elementFocused = null;
+                        if (e.preventDefault) {e.preventDefault();}
+                    }
                 },
                 inputMove: function(e) {
                     if (mouseDown){
@@ -389,6 +396,10 @@
             },
             detach: function(settings, options) {
                 var $this = $(this);
+                if (!$this.hasClass(ACTIVE_CLASS)) {
+                    return;
+                }
+
                 detachListeners($this, settings);
                 $this
                 .removeClass(ACTIVE_CLASS)
@@ -396,10 +407,14 @@
             },
             attach: function(settings, options) {
                 var $this = $(this);
+                if ($this.hasClass(ACTIVE_CLASS)) {
+                    return;
+                }
+
                 attachListeners($this, settings);
                 $this
                 .addClass(ACTIVE_CLASS)
-                .css("cursor", "move");
+                .css("cursor", settings.cursor);
             }
         }
     };
