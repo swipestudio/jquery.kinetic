@@ -1,6 +1,6 @@
 {
   "name": "jquery-kinetic",
-  "version": "2.1.2",
+  "version": "2.1.1",
   "repository": "swipestudio/velocity",
   "description": "jQuery.kinetic is a simple plugin which adds smooth drag scrolling with gradual deceleration to containers",
   "scripts": [
