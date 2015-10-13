@@ -172,7 +172,7 @@
         if (self.mouseDown){
           touch = e.originalEvent.touches[0];
           self._inputmove(touch.clientX, touch.clientY);
-          if (e.preventDefault){
+          if (e.preventDefault && (self.settings.y || Math.abs(self.velocityY) < 5)){
             e.preventDefault();
           }
         }
