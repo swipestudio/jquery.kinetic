@@ -489,6 +489,7 @@
         .bind('touchmove', settings.events.touchMove);
     } else {
       $this.on('mousewheel DOMMouseScroll onmousewheel', $.proxy(this._scrollHorizontally, this));
+      $this.mouseleave($.proxy(this.end, this));
     }
     
     $this
