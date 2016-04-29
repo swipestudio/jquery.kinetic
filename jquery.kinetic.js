@@ -192,9 +192,9 @@
         if (self._useTarget(e.target, e)){
           self._end();
           self.elementFocused = null;
-          if (e.preventDefault){
-            e.preventDefault();
-          }
+          //if (e.preventDefault){
+          //  e.preventDefault();
+          //}
         }
       },
       inputMove: function (e){
