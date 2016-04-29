@@ -464,6 +464,19 @@
       return $scroller.scrollTop();
     }
   };
+ 
+  Kinetic.prototype._scrollHorizontally = function (event){
+    var oEvent = event.originalEvent;
+    if(oEvent.deltaX < -1) {
+      event.preventDefault();
+      this.start({velocity: oEvent.deltaX});
+    } else if(oEvent.deltaX > 1) {
+      event.preventDefault();
+      this.start({velocity: oEvent.deltaX});
+    } else {
+      this.end();
+    }
+  };
 
   Kinetic.prototype._attachListeners = function (){
     var $this = this.$el;
@@ -474,6 +487,8 @@
         .bind('touchstart', settings.events.touchStart)
         .bind('touchend', settings.events.inputEnd)
         .bind('touchmove', settings.events.touchMove);
+    } else {
+      $this.on('mousewheel DOMMouseScroll onmousewheel', $.proxy(this._scrollHorizontally, this));
     }
     
     $this
