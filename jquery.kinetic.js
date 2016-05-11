@@ -491,7 +491,6 @@
       if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
         // FIXME: mousewheel scrolling buggy in safari.
       } else {
-        console.log('Attach mouseevents for horizontal scrolling.');
         $this.on('mousewheel DOMMouseScroll onmousewheel', $.proxy(this._scrollHorizontally, this));
         $this.mouseleave($.proxy(this.end, this));
       }
